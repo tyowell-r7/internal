@@ -38,7 +38,7 @@ python setup.py install
 cd ..
 
 #smb signing disabled hosts
-cme smb smb-hosts.txt --gen-relay-list smb-signing-disabled.txt
+crackmapexec smb smb-hosts.txt --gen-relay-list smb-signing-disabled.txt
 
 #scan for web services
 nmap -Pn -iL hosts -p 80,443,8080,8443 -oG - | grep open > http-hosts.txt
