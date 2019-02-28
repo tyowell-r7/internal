@@ -28,7 +28,7 @@ nmap -Pn -iL hosts -p 389 -oG - | awk '/open/{print $2}' > dc-hosts.txt
 nmap -Pn -iL hosts -p 445 -oG - | awk '/open/{print $2}' > smb-hosts.txt
 
 #scan for MS17-010
-msfconsole -x “use auxiliary/scanner/smb/smb_ms_17_010 ; set rhosts file:/root/hosts ; run ; exit” -o /root/mapping/ms17010-hosts.txt
+msfconsole -x “use auxiliary/scanner/smb/smb_ms_17_010 ; set rhosts file:/root/mapping/smb-hosts.txt ; run ; exit” -o /root/mapping/ms17010-hosts.txt
 
 #install cme
 apt-get install -y libssl-dev libffi-dev python-dev build-essential
