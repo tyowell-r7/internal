@@ -45,6 +45,8 @@ nmap -Pn -iL hosts -p 80,443,8080,8443 -oG - | grep open > http-hosts.txt
 awk '/ 80\/open/{print "http://" $2 "/"}' < http-hosts.txt >> http-urls.txt
 awk '/ 443\/open/{print "https://" $2 "/"}' < http-hosts.txt >> http-urls.txt
 awk '/ 8080\/open/{print "http://" $2 ":8080/"}' < http-hosts.txt >> http-urls.txt
+awk '/ 8443\/open/{print "https://" $2 ":8443/"}' < http-hosts.txt >> http-urls.txt
+
 
 #get eyewitness and setup
 git clone https://github.com/ChrisTruncer/EyeWitness
